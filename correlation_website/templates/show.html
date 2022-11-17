@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 股價分析 {% endblock %}
+{% block content %}
+<script>csrf_token= "{{ csrf_token }}"</script>
+<!-- css -->
+
+<style>
+    #container {
+  height: 400px;
+  min-width: 310px;
+} 
+</style>
+
+
+<!-- 網站 -->
+<div class="card mt-3">
+
+    <div class='card-body2'>
+        <form id="transcript_form">
+            <div style="font-size: 20px;"> 請輸入股票代號</div>
+
+
+            <label for="stock1">Stock1:</label><br>
+            <input type="text" id="stock1" name="stock1"><br>
+
+            <label for="stock2">Stock2:</label><br>
+            <input type="text" id="stock2" name="stock2"><br>
+
+            <label for="Start_date">Enter a Start Date:</label>
+            <input type="date" id="Start_date" name="Start_date"><br><br>
+            <label for="End_date">Enter a End Date:</label>
+            <input type="date" id="End_date" name="End_date">
+        </form>
+
+        <button class="btn btn-secondary btn-lg" id="submit">搜尋</button>
+    </div>
+    <!-- highchart -->
+    <div id="container"></div>
+    <div id="information"></div>  
+</div>
+
+<script src="{% static 'js/show.js' %}"></script>
+{% endblock %}
